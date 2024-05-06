@@ -421,7 +421,7 @@ void give(PearTree* tree, void* pointer) {
 void display(PearTree* tree, bool verbose) {
     printf("\nTree State:\nAvailability:\n");
     for (int class = 0; class < tree->layers; class++) {
-        printf("Class %d: \t", class);
+        printf("Class %d (%d bytes): \t", class, MINIMUM * (1 << (tree->layers - class - 1)));
         if (verbose) {
             for (int layer = 0; layer < class; layer++) {
                 for (int index = 0; index < seg(seg(tree->len, block(tree->layers, layer)), INTSIZE); index++) {

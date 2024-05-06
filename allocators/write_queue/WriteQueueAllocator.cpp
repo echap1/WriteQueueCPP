@@ -2,7 +2,7 @@
 
 template<class T>
 WriteQueueAllocator<T>::WriteQueueAllocator(size_t heap_size) {
-    std::cout << "[write_queue] initialized" << std::endl;
+    std::cout << "[write_queue] initialized tree with heap size " << heap_size << std::endl;
     void* base = mmap(nullptr, heap_size, PROT_READ | PROT_WRITE, MAP_ANON | MAP_SHARED, -1, 0);
     assert(sizeof(SignPost) <= MINIMUM);
     init(&tree, base, (long) heap_size);
